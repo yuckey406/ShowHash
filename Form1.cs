@@ -34,6 +34,7 @@ namespace ShowHash
             dataGridView1.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.PowderBlue;
             dataGridView1.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridView1.Font = new Font("Consolas", 10);
 
             // アイコンにファイルがドロップされた場合の処理
             var files = System.Environment.GetCommandLineArgs();
