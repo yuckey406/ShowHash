@@ -36,6 +36,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.設定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.フォントToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -43,7 +45,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.開くToolStripMenuItem});
+            this.開くToolStripMenuItem,
+            this.設定ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(791, 24);
@@ -57,27 +60,32 @@
             this.クリアToolStripMenuItem,
             this.終了ToolStripMenuItem});
             this.開くToolStripMenuItem.Name = "開くToolStripMenuItem";
-            this.開くToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
-            this.開くToolStripMenuItem.Text = "ファイル";
+            this.開くToolStripMenuItem.ShortcutKeyDisplayString = "(&F)";
+            this.開くToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F)));
+            this.開くToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.開くToolStripMenuItem.Text = "ファイル(&F)";
             // 
             // 開くToolStripMenuItem1
             // 
             this.開くToolStripMenuItem1.Name = "開くToolStripMenuItem1";
-            this.開くToolStripMenuItem1.Size = new System.Drawing.Size(100, 22);
-            this.開くToolStripMenuItem1.Text = "開く";
+            this.開くToolStripMenuItem1.ShortcutKeyDisplayString = "";
+            this.開くToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.開くToolStripMenuItem1.Text = "開く(&O)";
             this.開くToolStripMenuItem1.Click += new System.EventHandler(this.開くToolStripMenuItem1_Click);
             // 
             // クリアToolStripMenuItem
             // 
             this.クリアToolStripMenuItem.Name = "クリアToolStripMenuItem";
-            this.クリアToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.クリアToolStripMenuItem.Text = "クリア";
+            this.クリアToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.クリアToolStripMenuItem.Text = "クリア(&C)";
+            this.クリアToolStripMenuItem.Click += new System.EventHandler(this.クリアToolStripMenuItem_Click);
             // 
             // 終了ToolStripMenuItem
             // 
             this.終了ToolStripMenuItem.Name = "終了ToolStripMenuItem";
-            this.終了ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.終了ToolStripMenuItem.Text = "終了";
+            this.終了ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.終了ToolStripMenuItem.Text = "終了(&X)";
+            this.終了ToolStripMenuItem.Click += new System.EventHandler(this.終了ToolStripMenuItem_Click);
             // 
             // button1
             // 
@@ -105,7 +113,6 @@
             // 
             this.dataGridView1.AllowDrop = true;
             this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
@@ -115,15 +122,32 @@
             this.dataGridView1.Location = new System.Drawing.Point(10, 77);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 21;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(770, 359);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.DragDrop += new System.Windows.Forms.DragEventHandler(this.dataGridView1_DragDrop);
             this.dataGridView1.DragEnter += new System.Windows.Forms.DragEventHandler(this.dataGridView1_DragEnter);
             // 
+            // 設定ToolStripMenuItem
+            // 
+            this.設定ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.フォントToolStripMenuItem});
+            this.設定ToolStripMenuItem.Name = "設定ToolStripMenuItem";
+            this.設定ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.S)));
+            this.設定ToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.設定ToolStripMenuItem.Text = "設定(&S)";
+            // 
+            // フォントToolStripMenuItem
+            // 
+            this.フォントToolStripMenuItem.Name = "フォントToolStripMenuItem";
+            this.フォントToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.フォントToolStripMenuItem.Text = "フォント";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(791, 452);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button2);
@@ -155,6 +179,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ToolStripMenuItem 設定ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem フォントToolStripMenuItem;
     }
 }
 

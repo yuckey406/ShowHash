@@ -34,7 +34,7 @@ namespace ShowHash
             dataGridView1.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.PowderBlue;
             dataGridView1.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Font = new Font("Consolas", 10);
+            dataGridView1.Font = new Font("Consolas", 9);
 
             // アイコンにファイルがドロップされた場合の処理
             var files = System.Environment.GetCommandLineArgs();
@@ -43,12 +43,14 @@ namespace ShowHash
                 //MessageBox.Show($"Got {String.Join(",", files)}");
                 SetFileInfo(files.Skip(1));
             }
+            ActiveControl = dataGridView1;
         }
 
         private void SetFileInfo(IEnumerable<string> files)
         {
             foreach (var file in files)
             {
+                if (Directory.Exists(file)) continue; // フォルダの場合はいったんスキップ
                 var str = System.IO.File.ReadAllText(file);
                 byte[] beforeByteArray = Encoding.UTF8.GetBytes(str);
 
@@ -64,52 +66,68 @@ namespace ShowHash
                 System.IO.FileInfo fi = new System.IO.FileInfo(file);
                 dataGridView1.Rows.Add($"{fi.Name}", $"{fi.Length:#,0}", $"{fi.CreationTime}", $"{fi.LastAccessTime}", $"{sb1}");
             }
+            dataGridView1.ClearSelection();
         }
 
-
-    private void button2_Click(object sender, EventArgs e)
+        // 「終了」ボタン
+        private void button2_Click(object sender, EventArgs e)
+            {
+                this.Close();
+            }
+        private void 終了ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            button2.PerformClick();
         }
 
-    private void button1_Click(object sender, EventArgs e)
-    {
-        dataGridView1.Rows.Clear();
-    }
-
-    private void 開くToolStripMenuItem1_Click(object sender, EventArgs e)
-    {
-        var op = new OpenFileDialog();
-        op.Title = "ファイルを開く";
-        op.InitialDirectory = @"C:\";
-        op.Multiselect = true;
-        op.Filter = "すべてのファイル(*.*)|*.*";
-        var result = op.ShowDialog();
-
-        if (result == DialogResult.OK)
+        // 「クリア」ボタン
+        private void button1_Click(object sender, EventArgs e)
         {
-            string[] files = op.FileNames;
-            SetFileInfo(files);
+            dataGridView1.Rows.Clear();
         }
-    }
 
-    private void Form1_MouseClick(object sender, MouseEventArgs e)
-    {
-        dataGridView1.ClearSelection();
-    }
+        private void クリアToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            button1.PerformClick();
+        }
 
-    private void dataGridView1_DragDrop(object sender, DragEventArgs e)
-    {
-        string[] fileName = (string[])e.Data.GetData(DataFormats.FileDrop, false);
-        SetFileInfo(fileName);
-    }
 
-    private void dataGridView1_DragEnter(object sender, DragEventArgs e)
-    {
-        if (e.Data.GetDataPresent(DataFormats.FileDrop))
-            e.Effect = DragDropEffects.Copy;
-        else
-            e.Effect = DragDropEffects.None;
-    }
+
+        private void 開くToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var op = new OpenFileDialog();
+            op.Title = "ファイルを開く";
+            op.InitialDirectory = @"C:\";
+            op.Multiselect = true;
+            op.Filter = "すべてのファイル(*.*)|*.*";
+            var result = op.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                string[] files = op.FileNames;
+                SetFileInfo(files);
+            }
+        }
+
+        private void Form1_MouseClick(object sender, MouseEventArgs e)
+        {
+            dataGridView1.ClearSelection();
+        }
+
+
+        private void dataGridView1_DragDrop(object sender, DragEventArgs e)
+        {
+            string[] fileName = (string[])e.Data.GetData(DataFormats.FileDrop, false);
+            SetFileInfo(fileName);
+        }
+
+        private void dataGridView1_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                e.Effect = DragDropEffects.Copy;
+            else
+                e.Effect = DragDropEffects.None;
+        }
+
+
     }
 }
