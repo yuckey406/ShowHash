@@ -32,7 +32,7 @@ namespace ShowHash
                 dataGridView1.Columns.Add(column);
             }
             dataGridView1.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
-            dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.PowderBlue;
+            dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.Gainsboro;
             dataGridView1.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dataGridView1.Font = new Font("Consolas", 9);
 
@@ -69,7 +69,9 @@ namespace ShowHash
             dataGridView1.ClearSelection();
         }
 
+        //
         // 「終了」ボタン
+        //
         private void button2_Click(object sender, EventArgs e)
             {
                 this.Close();
@@ -79,7 +81,9 @@ namespace ShowHash
             button2.PerformClick();
         }
 
+        //
         // 「クリア」ボタン
+        //
         private void button1_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
@@ -89,7 +93,6 @@ namespace ShowHash
         {
             button1.PerformClick();
         }
-
 
 
         private void 開くToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -114,6 +117,9 @@ namespace ShowHash
         }
 
 
+        //
+        // Drag & Dropのインベントハンドラ
+        //
         private void dataGridView1_DragDrop(object sender, DragEventArgs e)
         {
             string[] fileName = (string[])e.Data.GetData(DataFormats.FileDrop, false);
