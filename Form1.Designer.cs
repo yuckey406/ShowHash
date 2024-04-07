@@ -46,7 +46,7 @@
             this.開くToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(726, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(791, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -81,7 +81,8 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(554, 27);
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(617, 27);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(74, 31);
             this.button1.TabIndex = 1;
@@ -91,7 +92,8 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(644, 27);
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Location = new System.Drawing.Point(706, 27);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(74, 31);
             this.button2.TabIndex = 2;
@@ -113,7 +115,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(10, 68);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 21;
-            this.dataGridView1.Size = new System.Drawing.Size(705, 317);
+            this.dataGridView1.Size = new System.Drawing.Size(770, 317);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.DragDrop += new System.Windows.Forms.DragEventHandler(this.dataGridView1_DragDrop);
             this.dataGridView1.DragEnter += new System.Windows.Forms.DragEventHandler(this.dataGridView1_DragEnter);
@@ -122,7 +124,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(726, 399);
+            this.ClientSize = new System.Drawing.Size(791, 399);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
