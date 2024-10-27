@@ -37,18 +37,22 @@ namespace ShowHash
             dataGridView1.Font = new Font("Consolas", 9);
 
             // アイコンにファイルがドロップされた場合の処理
-            var files = System.Environment.GetCommandLineArgs();
-            if (files.Length > 1)
+            var args = System.Environment.GetCommandLineArgs();
+            if (args.Length > 1)
             {
                 //MessageBox.Show($"Got {String.Join(",", files)}");
-                SetFileInfo(files.Skip(1));
+                SetFileInfo(args.Skip(1));
             }
             ActiveControl = dataGridView1;
         }
 
         private void SetFileInfo(IEnumerable<string> files)
         {
-            foreach (var file in files)
+            var folderFiles = files.Where(x => Directory.Exists(x))
+                                              .SelectMany(x => Directory.GetFiles(x, "*", SearchOption.AllDirectories));
+            var planeFiles = files.Where(x => !Directory.Exists(x));
+
+            foreach (var file in folderFiles.Concat(planeFiles))
             {
                 if (Directory.Exists(file)) continue; // フォルダの場合はいったんスキップ
                 var str = System.IO.File.ReadAllText(file);
