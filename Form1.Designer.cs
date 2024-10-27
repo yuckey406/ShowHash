@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.開くToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.開くToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,21 +72,21 @@
             // 
             this.開くToolStripMenuItem1.Name = "開くToolStripMenuItem1";
             this.開くToolStripMenuItem1.ShortcutKeyDisplayString = "";
-            this.開くToolStripMenuItem1.Size = new System.Drawing.Size(115, 22);
+            this.開くToolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
             this.開くToolStripMenuItem1.Text = "開く(&O)";
             this.開くToolStripMenuItem1.Click += new System.EventHandler(this.開くToolStripMenuItem1_Click);
             // 
             // クリアToolStripMenuItem
             // 
             this.クリアToolStripMenuItem.Name = "クリアToolStripMenuItem";
-            this.クリアToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.クリアToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.クリアToolStripMenuItem.Text = "クリア(&C)";
             this.クリアToolStripMenuItem.Click += new System.EventHandler(this.クリアToolStripMenuItem_Click);
             // 
             // 終了ToolStripMenuItem
             // 
             this.終了ToolStripMenuItem.Name = "終了ToolStripMenuItem";
-            this.終了ToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.終了ToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.終了ToolStripMenuItem.Text = "終了(&X)";
             this.終了ToolStripMenuItem.Click += new System.EventHandler(this.終了ToolStripMenuItem_Click);
             // 
@@ -102,7 +103,7 @@
             // フォントToolStripMenuItem
             // 
             this.フォントToolStripMenuItem.Name = "フォントToolStripMenuItem";
-            this.フォントToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.フォントToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.フォントToolStripMenuItem.Text = "フォント";
             // 
             // button1
@@ -162,6 +163,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.MinimumSize = new System.Drawing.Size(1026, 581);

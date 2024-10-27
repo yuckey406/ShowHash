@@ -34,6 +34,7 @@ namespace ShowHash
             dataGridView1.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.Gainsboro;
             dataGridView1.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridView1.AutoSizeColumnsMode= DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridView1.Font = new Font("Consolas", 10);
 
             // アイコンにファイルがドロップされた場合の処理
@@ -43,7 +44,7 @@ namespace ShowHash
                 //MessageBox.Show($"Got {String.Join(",", files)}");
                 SetFileInfo(args.Skip(1));
             }
-            ActiveControl = dataGridView1;
+            //ActiveControl = dataGridView1;
         }
 
         private void SetFileInfo(IEnumerable<string> files)
@@ -71,6 +72,7 @@ namespace ShowHash
                 dataGridView1.Rows.Add($"{fi.Name}", $"{fi.Length:#,0}", $"{fi.CreationTime}", $"{fi.LastAccessTime}", $"{sb1}");
             }
             dataGridView1.ClearSelection();
+            //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
         }
 
         //
