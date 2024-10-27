@@ -19,7 +19,7 @@ namespace ShowHash
         public Form1()
         {
             InitializeComponent();
-            this.Text += " Ver.1.0.0 β";
+            this.Text += " Ver.1.1.0";
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -34,7 +34,7 @@ namespace ShowHash
             dataGridView1.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.Gainsboro;
             dataGridView1.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridView1.Font = new Font("Consolas", 9);
+            dataGridView1.Font = new Font("Consolas", 10);
 
             // アイコンにファイルがドロップされた場合の処理
             var args = System.Environment.GetCommandLineArgs();
