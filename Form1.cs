@@ -36,7 +36,7 @@ namespace ShowHash
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.Gainsboro;
             dataGridView1.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dataGridView1.AutoSizeColumnsMode= DataGridViewAutoSizeColumnsMode.None;
-            dataGridView1.Font = new Font("Consolas", 10);
+            dataGridView1.Font = new Font("Consolas", 11);
 
             // アイコンにファイルがドロップされた場合の処理
             var args = System.Environment.GetCommandLineArgs();
@@ -56,7 +56,7 @@ namespace ShowHash
 
             foreach (var file in folderFiles.Concat(planeFiles))
             {
-                if (Directory.Exists(file)) continue; // フォルダの場合はいったんスキップ
+                //if (Directory.Exists(file)) continue; // フォルダの場合はいったんスキップ
                 var str = System.IO.File.ReadAllText(file);
                 byte[] beforeByteArray = Encoding.UTF8.GetBytes(str);
 
@@ -74,7 +74,6 @@ namespace ShowHash
             }
             dataGridView1.ClearSelection();
             dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-            //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
         }
 
         //
