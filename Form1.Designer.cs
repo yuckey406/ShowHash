@@ -103,8 +103,9 @@
             // フォントToolStripMenuItem
             // 
             this.フォントToolStripMenuItem.Name = "フォントToolStripMenuItem";
-            this.フォントToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
-            this.フォントToolStripMenuItem.Text = "フォント";
+            this.フォントToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.フォントToolStripMenuItem.Text = "フォント(&F)";
+            this.フォントToolStripMenuItem.Click += new System.EventHandler(this.フォントToolStripMenuItem_Click);
             // 
             // button1
             // 

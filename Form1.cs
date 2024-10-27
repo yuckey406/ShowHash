@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.WebRequestMethods;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ShowHash
 {
@@ -139,6 +140,35 @@ namespace ShowHash
                 e.Effect = DragDropEffects.Copy;
             else
                 e.Effect = DragDropEffects.None;
+        }
+
+        private void フォントToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //FontDialogクラスのインスタンスを作成
+            FontDialog fd = new FontDialog();
+
+            //初期のフォントを設定
+            fd.Font = dataGridView1.Font;
+            //初期の色を設定
+            fd.Color = dataGridView1.ForeColor;
+            //ユーザーが選択できるポイントサイズの最大値を設定する
+            fd.MinSize = 9;
+            fd.MaxSize = 16;
+            //存在しないフォントやスタイルをユーザーが選択するとエラーメッセージを表示する
+            fd.FontMustExist = true;
+            //横書きフォントだけを表示する
+            fd.AllowVerticalFonts = false;
+            //色を選択できるようにする
+            fd.ShowColor = true;
+            //取り消し線、下線、テキストの色などのオプションを指定可能にする
+
+            //ダイアログを表示する
+            if (fd.ShowDialog() != DialogResult.Cancel)
+            {
+                //dataGridView1のフォントと色を変える
+                dataGridView1.Font = fd.Font;
+                dataGridView1.ForeColor = fd.Color;
+            }
         }
     }
 }
